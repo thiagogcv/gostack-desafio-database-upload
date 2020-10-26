@@ -1,11 +1,10 @@
 import {
   Entity,
-  Column,
   PrimaryGeneratedColumn,
-  ManyToOne,
+  Column,
   JoinColumn,
+  ManyToOne,
   CreateDateColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 
 import Category from './Category';
@@ -21,7 +20,7 @@ class Transaction {
   @Column()
   type: 'income' | 'outcome';
 
-  @Column('decimal')
+  @Column()
   value: number;
 
   @ManyToOne(() => Category, category => category.transaction, { eager: true })
@@ -34,7 +33,7 @@ class Transaction {
   @CreateDateColumn()
   created_at: Date;
 
-  @UpdateDateColumn()
+  @CreateDateColumn()
   updated_at: Date;
 }
 

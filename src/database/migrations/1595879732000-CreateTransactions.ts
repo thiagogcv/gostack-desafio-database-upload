@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export default class CreateTransactions1595879732000
+export default class CreateTransactions1589758849285
   implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
@@ -9,7 +9,7 @@ export default class CreateTransactions1595879732000
         columns: [
           {
             name: 'id',
-            type: 'uuid',
+            type: 'uuid ',
             isPrimary: true,
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
@@ -24,9 +24,9 @@ export default class CreateTransactions1595879732000
           },
           {
             name: 'value',
-            type: 'decimal', // decimal no postgres recebe dois parametros:
-            precision: 10, // meu valor pode ter 10 digitos do lado esquerdo
-            scale: 2, // dois digitos do lado direito
+            type: 'decimal',
+            precision: 10,
+            scale: 2,
           },
           {
             name: 'created_at',

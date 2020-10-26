@@ -1,4 +1,5 @@
 import { Router } from 'express';
+
 import multer from 'multer';
 
 import { getCustomRepository } from 'typeorm';
@@ -26,9 +27,9 @@ transactionsRouter.get('/', async (request, response) => {
 transactionsRouter.post('/', async (request, response) => {
   const { title, value, type, category } = request.body;
 
-  const createTransaction = new CreateTransactionService();
+  const CreateTransaction = new CreateTransactionService();
 
-  const transaction = await createTransaction.execute({
+  const transaction = await CreateTransaction.execute({
     title,
     value,
     type,
@@ -59,5 +60,4 @@ transactionsRouter.post(
     return response.json(transactions);
   },
 );
-
 export default transactionsRouter;
